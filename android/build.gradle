@@ -6,9 +6,22 @@ buildscript {
             name 'Google'
         }
         jcenter()
+        mavenCentral()
+        maven {
+            url 'http://repo.spring.io/plugins-release/'
+            name 'Spring Plugins'
+        }
+
+        maven { url 'https://repo1.maven.org/maven2' }
+        maven { 
+            url 'https://plugins.gradle.org/m2/' 
+        }
+        maven { url "https://maven.google.com" } 
+        maven { url "https://dl.google.com/dl/android/maven2" } 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
+        // classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.android.tools.build:gradle:3.5.2'
     }
 }
 
@@ -17,24 +30,32 @@ allprojects {
         mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-            url "$rootDir/../node_modules/react-native/android"
+            url "$rootDir/../../node_modules/react-native/android"
         }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
         }
         jcenter()
+        mavenCentral()
         // repo for react-native
         // https://mvnrepository.com/artifact/com.facebook.react/react-native?repo=springio-plugins-release
         maven {
             url 'http://repo.spring.io/plugins-release/'
             name 'Spring Plugins'
         }
+
+        maven { url 'https://repo1.maven.org/maven2' }
+        maven { 
+            url 'https://plugins.gradle.org/m2/' 
+        }
+        maven { url "https://maven.google.com" } 
+        maven { url "https://dl.google.com/dl/android/maven2" } 
     }
 }
 
 ext {
-    reactNativeLibVersion = "0.55.3"
+    reactNativeLibVersion = "+"
 }
 
 task clean(type: Delete) {

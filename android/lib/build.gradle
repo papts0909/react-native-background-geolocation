@@ -53,6 +53,13 @@ repositories {
         url 'https://maven.google.com'
     }
     jcenter()
+    mavenCentral()
+    maven { url 'https://repo1.maven.org/maven2' }
+    maven { 
+        url 'https://plugins.gradle.org/m2/' 
+    }
+    maven { url "https://maven.google.com" } 
+    maven { url "https://dl.google.com/dl/android/maven2" } 
 }
 
 android {
@@ -64,12 +71,12 @@ android {
 
     // Tip: https://stackoverflow.com/questions/39987669/renamingdelegatingcontext-is-deprecated-how-do-we-test-sqlite-db-now/52170737#52170737
     // Gradle automatically adds 'android.test.runner' as a dependency.
-    useLibrary 'android.test.runner'
-    useLibrary 'android.test.base'
-    useLibrary 'android.test.mock'
+    // useLibrary 'android.test.runner'
+    // useLibrary 'android.test.base'
+    // useLibrary 'android.test.mock'
 
     defaultConfig {
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         minSdkVersion project.ext.getMinSdkVersion()
         targetSdkVersion project.ext.getTargetSdkVersion()
         versionCode 1 // intentionally not updating version as we're not uploading to any java repository
